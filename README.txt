@@ -8,13 +8,13 @@ to use:
 mvn clean package  --> to create the target folder and the jar file in it
 
 Posting parcels:
--o 1 -p <ParcelID> -s <StationID> 
+./client -o 1 -p <ParcelID> -s <StationID> 
 --> however, i change my code in such a way that the station you post wont matter but it will post the parcel from station 0 to 999, station does not matter
 --> you can change if you want
 
 
 Observing parcel trail:
--o 2 -p <ParcelID>
+./client -o 2 -p <ParcelID>
 
 Observing station stop count:
--o 3 -s <StationID>
+./client -o 3 -s <StationID>
