@@ -28,12 +28,13 @@ public class Client {
         if(orderNumber == 1){
             CloseableHttpAsyncClient ac = HttpAsyncClients.createDefault();ac.start();
             ac.start();
-            CountDownLatch latch = new CountDownLatch(1000);
+            CountDownLatch latch = new CountDownLatch(100);
             String parcelID = extractParcelID(args,2,args.length);
             String stationID = extractStationID(args,4,args.length);
-            for(int i = 0; i < 1000; i++){
+            Random rand = new Random();
+            for(int i = 0; i < 100; i++){
                 HttpPost req = new HttpPost("http://127.0.0.1:9090/events");
-                req.setHeader("stationId", String.valueOf(i));
+                req.setHeader("stationId", String.valueOf(rand.nextInt(400)));
                 req.setHeader("parcelId", parcelID);
                 req.setHeader("timestamp",String.valueOf(System.currentTimeMillis()));
                 try{
