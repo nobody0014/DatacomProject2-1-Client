@@ -33,7 +33,7 @@ public class Client {
             String stationID = extractStationID(args,4,args.length);
             Random rand = new Random();
             for(int i = 0; i < 100; i++){
-                HttpPost req = new HttpPost("http://192.168.0.98:27015/");
+                HttpPost req = new HttpPost("http://192.168.0.98:27015/events");
                 req.setHeader("stationId", String.valueOf(rand.nextInt(400)));
                 req.setHeader("parcelId", parcelID);
                 req.setHeader("timestamp",String.valueOf(System.currentTimeMillis()));
