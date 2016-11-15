@@ -33,7 +33,7 @@ public class Client {
             String stationID = extractStationID(args,4,args.length);
             Random rand = new Random();
             for(int i = 0; i < 100; i++){
-                HttpPost req = new HttpPost("http://127.0.0.1:9090/events");
+                HttpPost req = new HttpPost("http://192.168.0.98:27015/");
                 req.setHeader("stationId", String.valueOf(rand.nextInt(400)));
                 req.setHeader("parcelId", parcelID);
                 req.setHeader("timestamp",String.valueOf(System.currentTimeMillis()));
@@ -71,7 +71,7 @@ public class Client {
         else if(orderNumber == 2) {
             String parcelID = extractParcelID(args,2,args.length);
             System.out.println(parcelID);
-            HttpGet req = new HttpGet("http://127.0.0.1:9090/trail/" + parcelID);
+            HttpGet req = new HttpGet("http://127.0.0.1:27015/trail/" + parcelID);
 //            req.setHeader("parcelId",parcelID);
             try{
                 response = client.execute(req);
@@ -82,7 +82,7 @@ public class Client {
         }
         else if(orderNumber == 3){
             String stationID = extractStationID(args,2,args.length);
-            HttpGet req = new HttpGet("http://127.0.0.1:9090/stopCount/" + stationID);
+            HttpGet req = new HttpGet("http://127.0.0.1:27015/stopCount/" + stationID);
 //            req.setHeader("stationId",stationID);
             try{
                 response = client.execute(req);
